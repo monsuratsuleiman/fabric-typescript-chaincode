@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euo pipefail
+
+METADIR=$2
+
+echo "NO VERIFICATION. ASSUMED type in metadata.json is externalß"
+
+exit 0

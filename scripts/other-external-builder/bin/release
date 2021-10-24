@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -euo pipefail
+
+BUILDDIR=$1
+RELEASE=$2
+
+if [ -d "${BUILDDIR}/metadata" ]; then
+  cp -a "$BUILDDIR/metadata/"* "$RELEASE/"
+fi
+
+if [ -f "${BUILDDIR}/connection.json" ]; then
+  mkdir -p "$RELEASE"/chaincode/server
+  cp $BUILDDIR/connection.json "$RELEASE"/chaincode/server
+
+  exit 0
+fi
+
+exit 1
